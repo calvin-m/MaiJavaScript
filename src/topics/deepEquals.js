@@ -10,14 +10,14 @@ export default function deepEquals(value1, value2) {
     if(value1Type === "number" && isNaN(value1) 
         && value2Type === "number" && isNaN(value2)) return true; // special case of primitive type (since NaN is type of number)
                                                                 // caution: isNaN("a string") => true!
-    // primitive types
+    //=== 1. primitive types
     if(value1Type !== "object" && value2Type !== "object") {
         //console.log("Primitive type check: " + value1Type);
         return value1 === value2;
     }
 
-    // object type
-    // array type
+    // ==== 2. object types ====
+    // 2.1. array type
     if(Array.isArray(value1) && Array.isArray(value2)){
         if(value1.length !== value2.length) return false;
 
@@ -29,7 +29,7 @@ export default function deepEquals(value1, value2) {
 
     if(Array.isArray(value1) || Array.isArray(value2)) return false;
 
-    // object type
+    // 2.2 object type
     const value1Keys = Object.keys(value1);
     const value2Keys = Object.keys(value2);
 

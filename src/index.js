@@ -1,5 +1,16 @@
-//import "clone-object.js";
-console.log("Hello World!");
+import {debugHelper, l, w, e} from "./libs/debug-helper.js";
+//import * as debugHelper from "./libs/debug-helper.js";
+
+
+
+l("Hello World! The debug flag is set to: " + debugHelper.isDebugEnabled());
+w("warning");
+e("error");
+debugHelper.disableDebug();; // TypeError: Assignment to constant variable
+l("DEBUG is set to false     from l()"); // these will not be output since the debug flag is set to false
+w("warning2");
+e("error2");
+console.log("DebugFlag: " + debugHelper.isDebugEnabled()); // DebugFlag: false
 
 console.log(isNaN("string")); // true
 console.log(isNaN(NaN)); // true

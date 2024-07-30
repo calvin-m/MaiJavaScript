@@ -1,7 +1,7 @@
 import deepEquals from "./deepEquals.js";
 
 
-console.log("===== TRUE =======");
+console.group("==== TRUE");
 console.log(deepEquals(1, 1));
 console.log(deepEquals('a string', "a string") + " : string, string");
 console.log(deepEquals(NaN, NaN) + " : NaN, NaN");
@@ -14,12 +14,15 @@ console.log(deepEquals({a: 1, b: "2"},{a: 1, b: "2"}));
 
 const arr = new Array(100000).fill('a');
 console.log(deepEquals(arr, arr));
+console.groupEnd();
 
-console.log("===== FALSE =======");
+
+console.group("====== FALSE");
 console.log(deepEquals(1, 2));
 console.log(deepEquals('string', "String"));
 console.log(deepEquals([1, 2, 3], ['1', '2', '3']));
 console.log(deepEquals({a: 1, b: "2"},{a: 1, b: "3"}));
+console.groupEnd();
 
 // ===== experiment ===
 
